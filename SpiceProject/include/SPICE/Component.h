@@ -1,23 +1,28 @@
-/***
+/** Copyright 2018
  * David Mercanti
+ * Alejandro Martinez
  * 
- * Copyright 2018
- * 
- */
+ * */
 
 #ifndef SPICEPROJECT_INCLUDE_SPICE_COMPONENT_H_
 #define SPICEPROJECT_INCLUDE_SPICE_COMPONENT_H_
 
 #include <string>
+#include <map>
+#include "SPICE/Circuit.h"
 
-
+/*components are only ever going to be inherited from
+ *so it will not need constructors or anything of the sort
+ * 
+ * */
 class Component {
   //CompType thisType_;
   /*store two connecting nodes*/
-  Node topeNode_;
-  Node bottomNode_;
-  std::string name_;
+  public:
+    std::string name_;
+    explicit Component(const std::string *similiarNames, std::map<std::string, Node> &myMap);
   
 };
+
 
 #endif // SPICEPROJECT_INCLUDE_SPICE_COMPONENT_H_
